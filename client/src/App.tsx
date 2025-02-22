@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "./hooks/use-auth";
 import { ThemeProvider } from "./hooks/use-theme";
 import { ProtectedRoute } from "./lib/protected-route";
+import SidebarNav from "@/components/sidebar-nav";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/home-page";
 import AuthPage from "@/pages/auth-page";
@@ -13,14 +14,17 @@ import SettingsPage from "@/pages/settings-page";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/auth" component={AuthPage} />
-      <ProtectedRoute path="/" component={HomePage} />
-      <ProtectedRoute path="/editor" component={EditorPage} />
-      <ProtectedRoute path="/editor/:id" component={EditorPage} />
-      <ProtectedRoute path="/settings" component={SettingsPage} />
-      <Route component={NotFound} />
-    </Switch>
+    <div className="min-h-screen">
+      <SidebarNav />
+      <Switch>
+        <Route path="/auth" component={AuthPage} />
+        <ProtectedRoute path="/" component={HomePage} />
+        <ProtectedRoute path="/editor" component={EditorPage} />
+        <ProtectedRoute path="/editor/:id" component={EditorPage} />
+        <ProtectedRoute path="/settings" component={SettingsPage} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
   );
 }
 

@@ -42,37 +42,9 @@ export default function SidebarNav() {
   const { logoutMutation } = useAuth();
   const [open, setOpen] = useState(false);
 
-  const NavContent = () => (
-    <div className="flex items-center gap-4">
-      {navItems.map((item) => (
-        <Link key={item.href} href={item.href}>
-          <Button
-            variant={location === item.href ? "secondary" : "ghost"}
-            className={cn(
-              "hidden md:flex",
-              location === item.href && "bg-accent"
-            )}
-            onClick={() => setOpen(false)}
-          >
-            {item.icon}
-            <span className="ml-2">{item.title}</span>
-          </Button>
-        </Link>
-      ))}
-      <Button
-        variant="ghost"
-        className="hidden md:flex text-destructive hover:text-destructive"
-        onClick={() => logoutMutation.mutate()}
-      >
-        <LogOut className="h-4 w-4 mr-2" />
-        Logout
-      </Button>
-    </div>
-  );
-
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-background border-b z-50">
-      <div className="h-full px-4 flex items-center justify-between">
+      <div className="container h-full mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -104,18 +76,16 @@ export default function SidebarNav() {
                         </Button>
                       </Link>
                     ))}
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start text-destructive hover:text-destructive"
+                      onClick={() => logoutMutation.mutate()}
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Button>
                   </div>
                 </ScrollArea>
-                <div className="p-2">
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start text-destructive hover:text-destructive"
-                    onClick={() => logoutMutation.mutate()}
-                  >
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Logout
-                  </Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
@@ -126,7 +96,31 @@ export default function SidebarNav() {
           />
           <h1 className="text-lg font-bold">Tathyaganga</h1>
         </div>
-        <NavContent />
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-2">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <Button
+                variant={location === item.href ? "secondary" : "ghost"}
+                className={cn(
+                  location === item.href && "bg-accent"
+                )}
+              >
+                {item.icon}
+                <span className="ml-2">{item.title}</span>
+              </Button>
+            </Link>
+          ))}
+          <Button
+            variant="ghost"
+            className="text-destructive hover:text-destructive"
+            onClick={() => logoutMutation.mutate()}
+          >
+            <LogOut className="h-4 w-4 mr-2" />
+            Logout
+          </Button>
+        </nav>
       </div>
     </header>
   );
