@@ -20,6 +20,11 @@ export default function Editor({ value, onChange }: EditorProps) {
     },
   });
 
+  // Update editor content when value prop changes
+  if (editor && value !== editor.getHTML()) {
+    editor.commands.setContent(value);
+  }
+
   if (!editor) {
     return null;
   }

@@ -46,6 +46,8 @@ export default function EditorPage() {
         title: content.title,
         content: content.content,
         status: content.status,
+      }, {
+        keepDefaultValues: false
       });
     }
   }, [content, form]);
