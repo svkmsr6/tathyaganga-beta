@@ -46,8 +46,8 @@ export default function HomePage() {
       <SidebarNav />
 
       <main className="flex-1 p-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Welcome, {user?.username}</h1>
+        <div className="flex flex-col items-center mb-8">
+          <h1 className="text-3xl font-bold text-center mb-4">Welcome, {user?.username}</h1>
           <Link href="/editor">
             <Button>
               <Plus className="mr-2 h-4 w-4" />
