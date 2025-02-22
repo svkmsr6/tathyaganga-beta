@@ -10,7 +10,6 @@ import { Card } from "@/components/ui/card";
 import { Loader2, Save, ArrowLeft } from "lucide-react";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import SidebarNav from "@/components/sidebar-nav";
 import Editor from "@/components/editor";
 import { useEffect } from "react";
 
@@ -95,9 +94,8 @@ export default function EditorPage() {
 
   if (isLoadingContent) {
     return (
-      <div className="flex min-h-screen">
-        <SidebarNav />
-        <main className="flex-1 p-8">
+      <div className="min-h-screen pt-16">
+        <main className="p-8">
           <div className="flex items-center justify-center h-full">
             <Loader2 className="h-8 w-8 animate-spin" />
           </div>
@@ -107,10 +105,8 @@ export default function EditorPage() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      <SidebarNav />
-
-      <main className="flex-1 p-8 pt-20 lg:pt-8 lg:pl-80 lg:pr-16">
+    <div className="min-h-screen pt-16">
+      <main className="p-8">
         <div className="flex items-center gap-4 mb-8">
           <Button variant="outline" onClick={() => setLocation("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
@@ -121,7 +117,7 @@ export default function EditorPage() {
           </h1>
         </div>
 
-        <Card className="p-6 mx-auto lg:mx-0 max-w-4xl">
+        <Card className="p-6 max-w-4xl mx-auto">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -145,7 +141,7 @@ export default function EditorPage() {
                   <FormItem>
                     <FormLabel>Content</FormLabel>
                     <FormControl>
-                      <Editor 
+                      <Editor
                         value={field.value}
                         onChange={field.onChange}
                       />
@@ -183,7 +179,6 @@ export default function EditorPage() {
             </form>
           </Form>
         </Card>
-
       </main>
     </div>
   );

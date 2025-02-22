@@ -2,17 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "@/hooks/use-theme";
-import SidebarNav from "@/components/sidebar-nav";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex min-h-screen">
-      <SidebarNav />
-
-      <main className="flex-1 p-8 pt-20 lg:pl-80 lg:pt-8 lg:pr-16">
-        <div className="mx-auto lg:mx-0 max-w-4xl">
+    <div className="min-h-screen pt-16">
+      <main className="p-8">
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold mb-8">Settings</h1>
 
           <Card>

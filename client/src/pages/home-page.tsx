@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Plus, File, AlertCircle, Trash2 } from "lucide-react";
 import { Link } from "wouter";
-import SidebarNav from "@/components/sidebar-nav";
 import { stripHtml, truncateText } from "@/lib/utils";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import {
@@ -42,11 +41,9 @@ export default function HomePage() {
   });
 
   return (
-    <div className="flex min-h-screen">
-      <SidebarNav />
-
-      <main className="flex-1 p-8 pt-20 lg:pt-8">
-        <div className="flex flex-col items-center mb-8 max-w-6xl mx-auto">
+    <div className="min-h-screen pt-16">
+      <main className="p-8">
+        <div className="flex flex-col items-center mb-8">
           <h1 className="text-3xl font-bold text-center mb-4">Welcome, {user?.username}</h1>
           <Link href="/editor">
             <Button>
