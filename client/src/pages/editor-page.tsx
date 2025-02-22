@@ -12,6 +12,7 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import SidebarNav from "@/components/sidebar-nav";
 import Editor from "@/components/editor";
+import { useEffect } from "react";
 
 type FormValues = {
   title: string;
@@ -32,11 +33,22 @@ export default function EditorPage() {
   const form = useForm<FormValues>({
     resolver: zodResolver(insertContentSchema),
     defaultValues: {
-      title: content?.title || "",
-      content: content?.content || "",
-      status: content?.status || "draft",
+      title: "",
+      content: "",
+      status: "draft",
     },
   });
+
+  // Update form values when content is loaded
+  useEffect(() => {
+    if (content) {
+      form.reset({
+        title: content.title,
+        content: content.content,
+        status: content.status,
+      });
+    }
+  }, [content, form]);
 
   const saveMutation = useMutation({
     mutationFn: async (values: FormValues) => {
