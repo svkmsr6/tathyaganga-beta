@@ -26,7 +26,7 @@ export default function EditorPage() {
   const { toast } = useToast();
 
   const { data: content, isLoading: isLoadingContent } = useQuery<Content>({
-    queryKey: [`/api/contents/${id}`],
+    queryKey: id ? [`/api/contents/${id}`] : [],
     enabled: !!id,
   });
 
@@ -61,6 +61,9 @@ export default function EditorPage() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/contents"] });
+      if (id) {
+        queryClient.invalidateQueries({ queryKey: [`/api/contents/${id}`] });
+      }
       toast({
         title: "Success",
         description: "Content saved successfully",
