@@ -28,7 +28,7 @@ export default function AuthPage() {
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-center">
-              Welcome to Shodhganga
+              Welcome to Tathyaganga
             </CardTitle>
           </CardHeader>
           <CardContent>
