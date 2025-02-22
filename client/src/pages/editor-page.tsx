@@ -110,8 +110,8 @@ export default function EditorPage() {
     <div className="flex min-h-screen">
       <SidebarNav />
 
-      <main className="flex-1 p-8 lg:pl-72">
-        <div className="flex items-center gap-4 mb-8 max-w-6xl mx-auto">
+      <main className="flex-1 p-8">
+        <div className="flex items-center gap-4 mb-8">
           <Button variant="outline" onClick={() => setLocation("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -121,7 +121,7 @@ export default function EditorPage() {
           </h1>
         </div>
 
-        <Card className="p-6 max-w-4xl mx-auto">
+        <Card className="p-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
