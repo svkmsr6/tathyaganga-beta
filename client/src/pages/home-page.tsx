@@ -45,8 +45,8 @@ export default function HomePage() {
     <div className="flex min-h-screen">
       <SidebarNav />
 
-      <main className="flex-1 p-8">
-        <div className="flex flex-col items-center mb-8">
+      <main className="flex-1 p-8 lg:pl-72">
+        <div className="flex flex-col items-center mb-8 max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold text-center mb-4">Welcome, {user?.username}</h1>
           <Link href="/editor">
             <Button>
@@ -61,7 +61,7 @@ export default function HomePage() {
             <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
           </div>
         ) : !contents?.length ? (
-          <Card>
+          <Card className="max-w-2xl mx-auto">
             <CardContent className="flex flex-col items-center justify-center p-12 text-center">
               <File className="h-12 w-12 mb-4 text-muted-foreground" />
               <h2 className="text-xl font-semibold mb-2">No content yet</h2>
@@ -74,7 +74,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
             {contents.map((content) => (
               <Card key={content.id} className="group relative hover:bg-accent/50 transition-colors">
                 <Link href={`/editor/${content.id}`}>
