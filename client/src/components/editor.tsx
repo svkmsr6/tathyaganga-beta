@@ -5,6 +5,7 @@ import {
   Bold, Italic, List, ListOrdered, 
   Heading1, Heading2, Quote, Undo, Redo 
 } from 'lucide-react';
+import { useEffect } from 'react';
 
 interface EditorProps {
   value: string;
@@ -16,14 +17,18 @@ export default function Editor({ value, onChange }: EditorProps) {
     extensions: [StarterKit],
     content: value,
     onUpdate: ({ editor }) => {
-      onChange(editor.getHTML());
+      const html = editor.getHTML();
+      if (html !== value) {
+        onChange(html);
+      }
     },
   });
 
-  // Update editor content when value prop changes
-  if (editor && value !== editor.getHTML()) {
-    editor.commands.setContent(value);
-  }
+  useEffect(() => {
+    if (editor && value !== editor.getHTML()) {
+      editor.commands.setContent(value, false);
+    }
+  }, [editor, value]);
 
   if (!editor) {
     return null;
