@@ -1,7 +1,6 @@
 import { useAuth } from "@/hooks/use-auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
@@ -10,6 +9,7 @@ import { insertUserSchema } from "@shared/schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function AuthPage() {
   const { user, loginMutation, registerMutation } = useAuth();
@@ -61,7 +61,7 @@ export default function AuthPage() {
               Create Content with Confidence
             </h1>
             <p className="text-lg opacity-90">
-              ShodhVichara combines AI-powered fact-checking with professional content creation tools to help you produce accurate, engaging content.
+              Tathyaganga combines AI-powered fact-checking with professional content creation tools to help you produce accurate, engaging content.
             </p>
           </div>
         </div>
