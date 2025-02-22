@@ -93,8 +93,13 @@ export default function EditorPage() {
 
   if (isLoadingContent) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="h-8 w-8 animate-spin" />
+      <div className="flex min-h-screen">
+        <SidebarNav />
+        <main className="flex-1 p-8">
+          <div className="flex items-center justify-center h-full">
+            <Loader2 className="h-8 w-8 animate-spin" />
+          </div>
+        </main>
       </div>
     );
   }
