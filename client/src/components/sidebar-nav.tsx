@@ -50,7 +50,7 @@ export default function SidebarNav() {
           alt="Logo"
           className="h-8 w-8 rounded"
         />
-        <h1 className="text-lg font-bold">ShodhVichara</h1>
+        <h1 className="text-lg font-bold">Shodhganga</h1>
       </div>
       <ScrollArea className="flex-1 px-2">
         <div className="space-y-1 py-2">
