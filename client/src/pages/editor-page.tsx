@@ -121,7 +121,7 @@ export default function EditorPage() {
           </h1>
         </div>
 
-        <Card className="p-6 max-w-4xl mx-auto">
+        <Card className="p-6 mx-auto lg:mx-0 max-w-4xl">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -183,6 +183,7 @@ export default function EditorPage() {
             </form>
           </Form>
         </Card>
+
       </main>
     </div>
   );

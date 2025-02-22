@@ -12,7 +12,7 @@ export default function SettingsPage() {
       <SidebarNav />
 
       <main className="flex-1 p-8 pt-20 lg:pl-80 lg:pt-8 lg:pr-16">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto lg:mx-0 max-w-4xl">
           <h1 className="text-3xl font-bold mb-8">Settings</h1>
 
           <Card>
