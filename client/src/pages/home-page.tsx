@@ -45,7 +45,7 @@ export default function HomePage() {
     <div className="flex min-h-screen">
       <SidebarNav />
 
-      <main className="flex-1 p-8 lg:pl-72">
+      <main className="flex-1 p-8">
         <div className="flex flex-col items-center mb-8 max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold text-center mb-4">Welcome, {user?.username}</h1>
           <Link href="/editor">
