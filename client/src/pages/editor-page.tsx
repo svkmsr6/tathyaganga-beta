@@ -110,7 +110,7 @@ export default function EditorPage() {
     <div className="flex min-h-screen">
       <SidebarNav />
 
-      <main className="flex-1 p-8 lg:pl-72">
+      <main className="flex-1 p-8 pt-20 lg:pt-8 lg:pl-72">
         <div className="flex items-center gap-4 mb-8">
           <Button variant="outline" onClick={() => setLocation("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />

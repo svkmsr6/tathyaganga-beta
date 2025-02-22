@@ -11,7 +11,7 @@ export default function SettingsPage() {
     <div className="flex min-h-screen">
       <SidebarNav />
 
-      <main className="flex-1 p-8 lg:pl-72">
+      <main className="flex-1 p-8 pt-20 lg:pt-8 lg:pl-72">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold mb-8">Settings</h1>
 

@@ -86,19 +86,22 @@ export default function SidebarNav() {
 
   return (
     <>
-      {/* Mobile Navigation */}
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild className="lg:hidden absolute left-4 top-4">
-          <Button variant="outline" size="icon">
-            <Menu className="h-4 w-4" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-64 p-0">
-          <div className="flex flex-col h-full py-4">
-            <NavContent />
-          </div>
-        </SheetContent>
-      </Sheet>
+      {/* Mobile Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-background border-b px-4 flex items-center">
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Menu className="h-4 w-4" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-64 p-0">
+            <div className="flex flex-col h-full py-4">
+              <NavContent />
+            </div>
+          </SheetContent>
+        </Sheet>
+        <h1 className="ml-4 text-lg font-bold">Tathyaganga</h1>
+      </div>
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex w-64 flex-col border-r bg-card">
