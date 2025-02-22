@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Plus, File, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 import SidebarNav from "@/components/sidebar-nav";
+import { stripHtml, truncateText } from "@/lib/utils";
 
 export default function HomePage() {
   const { user } = useAuth();
@@ -16,7 +17,7 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen">
       <SidebarNav />
-      
+
       <main className="flex-1 p-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Welcome, {user?.username}</h1>
@@ -55,7 +56,7 @@ export default function HomePage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground line-clamp-3">
-                      {content.content}
+                      {truncateText(stripHtml(content.content))}
                     </p>
                     <div className="flex items-center mt-4 gap-2">
                       <div className="text-sm px-2 py-1 rounded-md bg-secondary">
