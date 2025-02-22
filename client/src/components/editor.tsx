@@ -120,7 +120,7 @@ export default function Editor({ value, onChange }: EditorProps) {
       </div>
       <EditorContent 
         editor={editor} 
-        className="prose max-w-none p-4 min-h-[200px] focus:outline-none"
+        className="prose dark:prose-invert max-w-none p-4 min-h-[200px] focus:outline-none"
       />
     </div>
   );
